@@ -1,10 +1,13 @@
 import { Link, NavLink, Outlet } from 'react-router-dom'
+import { useState } from 'react'
 import { navigationItems } from '../data/siteContent'
 
 const navClasses = ({ isActive }) =>
   `text-sm transition ${isActive ? 'text-vx-text' : 'text-vx-muted hover:text-vx-text'}`
 
 function SiteLayout() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 z-30 border-b border-vx-border/70 bg-vx-bg/92 backdrop-blur">
@@ -19,23 +22,57 @@ function SiteLayout() {
               </NavLink>
             ))}
           </nav>
-          <a
-            href="/#contact"
-            className="rounded-md border border-vx-border bg-vx-panel px-4 py-2 text-sm font-medium text-vx-text transition hover:border-vx-accent"
-          >
-            Book a conversation
-          </a>
+          <div className="flex items-center gap-2">
+            <a
+              href="/#contact"
+              className="hidden rounded-md bg-vx-accent px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-vx-accent/30 transition hover:brightness-110 lg:inline-flex"
+            >
+              Book a conversation
+            </a>
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen(true)}
+              className="inline-flex rounded-md border border-vx-border bg-vx-panel px-3 py-2 text-sm font-medium text-vx-text lg:hidden"
+            >
+              Menu
+            </button>
+          </div>
         </div>
-        <div className="scrollbar-hidden border-t border-vx-border/50 px-5 py-2 lg:hidden">
-          <nav className="mx-auto flex w-full max-w-7xl gap-5 overflow-x-auto text-sm text-vx-muted">
+      </header>
+
+      {isMenuOpen ? (
+        <div className="fixed inset-0 z-40 bg-vx-bg/95 p-6 backdrop-blur lg:hidden">
+          <div className="mx-auto flex w-full max-w-7xl items-center justify-between">
+            <p className="text-lg font-semibold text-vx-text">Navigation</p>
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen(false)}
+              className="rounded-md border border-vx-border px-3 py-2 text-sm text-vx-text"
+            >
+              Close
+            </button>
+          </div>
+          <nav className="mx-auto mt-8 flex w-full max-w-7xl flex-col gap-3">
             {navigationItems.map((item) => (
-              <NavLink key={item.href} to={item.href} className={navClasses}>
+              <NavLink
+                key={item.href}
+                to={item.href}
+                className="rounded-lg border border-vx-border bg-vx-panel px-4 py-3 text-base text-vx-text"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 {item.label}
               </NavLink>
             ))}
+            <a
+              href="/#contact"
+              className="mt-4 inline-flex rounded-md bg-vx-accent px-4 py-3 text-center text-sm font-semibold text-white"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Book a conversation
+            </a>
           </nav>
         </div>
-      </header>
+      ) : null}
 
       <main className="mx-auto w-full max-w-7xl px-5 py-8 sm:px-6 lg:px-10 lg:py-14">
         <Outlet />
