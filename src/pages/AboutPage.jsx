@@ -1,29 +1,26 @@
+import CtaPanel from '../components/CtaPanel'
+import PageHero from '../components/PageHero'
 import SectionBlock from '../components/SectionBlock'
 
 function AboutPage() {
   return (
-    <div className="space-y-8">
-      <section className="rounded-2xl border border-vx-border bg-vx-surface/70 p-8 lg:p-12">
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-vx-accent">About Vandrix</p>
-        <h1 className="mt-4 max-w-4xl text-4xl font-semibold tracking-tight text-vx-text lg:text-5xl">
-          Built to combine practical energy insight, applied AI, and deployable sensing.
-        </h1>
-        <p className="mt-5 max-w-3xl text-base leading-7 text-vx-muted">
-          Vandrix operates at the intersection of consulting-grade rigour and modern product delivery.
-          We focus on measurable outcomes across energy performance, operational visibility, and compliance readiness.
-        </p>
-      </section>
+    <div className="space-y-8 lg:space-y-10">
+      <PageHero
+        eyebrow="About Vandrix"
+        title="Built to unite practical energy insight, applied AI, and deployable sensing."
+        intro="Vandrix sits between consulting-grade analysis and modern product delivery. The company is focused on measurable outcomes in energy performance, operational visibility, and compliance readiness."
+      />
 
       <SectionBlock
         eyebrow="Company Focus"
-        title="A specialist model for organisations that need action, not noise"
-        intro="The business is structured to bring together strategic thinking and technical execution. That includes software products, AI workflows, and sensing-led operational data where needed."
+        title="A specialist model for complex operational environments"
+        intro="We work with organisations that need disciplined technical work and commercially sensible implementation."
       >
         <div className="grid gap-4 md:grid-cols-3">
           {[
-            ['Energy performance', 'Reducing avoidable spend through clearer insight and prioritised interventions.'],
-            ['Operational visibility', 'Improving understanding of equipment and site-level behaviour over time.'],
-            ['Compliance readiness', 'Strengthening ISO 50001 evidence quality and audit confidence.'],
+            ['Energy performance', 'Reducing avoidable spend through robust analysis and clear intervention priorities.'],
+            ['Operational visibility', 'Improving equipment and site-level understanding where decisions are currently constrained.'],
+            ['Compliance readiness', 'Strengthening ISO 50001 evidence quality and audit preparation confidence.'],
           ].map(([title, text]) => (
             <div key={title} className="rounded-xl border border-vx-border/80 bg-vx-surface-2/60 p-5">
               <p className="text-sm font-semibold text-vx-text">{title}</p>
@@ -33,24 +30,21 @@ function AboutPage() {
         </div>
       </SectionBlock>
 
-      <SectionBlock eyebrow="Delivery Philosophy" title="Serious, measured, and outcome-led">
-        <div className="space-y-3 text-sm leading-7 text-vx-muted">
-          <p>Vandrix is not a generic dashboard provider and not a slideware consultancy model.</p>
-          <p>Each engagement is designed around operational constraints, data realities, and commercial priorities.</p>
-          <p>The objective is simple: help teams take better decisions with credible, technically grounded intelligence.</p>
+      <SectionBlock eyebrow="Approach" title="Measured, technical, and outcome-led">
+        <div className="space-y-3 text-sm leading-7 text-vx-muted lg:text-base">
+          <p>Vandrix is not positioned as a generic dashboard platform and not as slide-led consultancy work.</p>
+          <p>Our work is designed around operational constraints, engineering reality, and commercial priorities.</p>
+          <p>We focus on producing evidence and actions that teams can use with confidence.</p>
         </div>
       </SectionBlock>
 
-      <section className="rounded-2xl border border-vx-accent/50 bg-vx-accent/10 p-8">
-        <h2 className="text-3xl font-semibold text-vx-text">Speak with the Vandrix team</h2>
-        <p className="mt-4 max-w-2xl text-sm leading-7 text-vx-muted">
-          If you are evaluating energy performance improvements, ISO 50001 readiness work, or sensing-led pilots,
-          we would welcome a conversation.
-        </p>
-        <a href="mailto:hello@vandrix.co.uk" className="mt-6 inline-flex rounded-md bg-vx-text px-5 py-2.5 text-sm font-semibold text-vx-bg">
-          Contact Vandrix
-        </a>
-      </section>
+      <CtaPanel
+        title="Speak with the Vandrix team"
+        body="If you are assessing WattGuard deployment, ISO 50001 readiness support, or a sensing pilot, we would welcome a structured discussion."
+        primaryLabel="Book a conversation"
+        secondaryLabel="Contact Vandrix"
+        secondaryHref="mailto:hello@vandrix.co.uk"
+      />
     </div>
   )
 }

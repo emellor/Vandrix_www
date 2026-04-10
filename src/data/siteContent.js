@@ -13,9 +13,9 @@ export const solutions = [
     status: 'available',
     statusLabel: 'Available now',
     description:
-      'Half-hourly meter analytics that highlights out-of-hours waste, baseload issues, and avoidable spend without new hardware.',
-    audience: 'Energy managers, estates teams, multi-site operators',
-    value: 'Fast insight from existing data and clear actions by site.',
+      'Commercially ready analytics for half-hourly meter data, designed to identify out-of-hours waste, baseload drift, and avoidable spend.',
+    audience: 'Energy managers, estates leads, and multi-site operators',
+    value: 'Rapid insight from existing data with clear, practical actions.',
   },
   {
     name: 'Vandrix ISO',
@@ -23,9 +23,9 @@ export const solutions = [
     status: 'development',
     statusLabel: 'In development',
     description:
-      'AI-assisted ISO 50001 readiness intelligence that reviews uploaded evidence and maps strengths, gaps, and remediation priorities.',
-    audience: 'Sustainability leads, compliance teams, audit sponsors',
-    value: 'Structured readiness reports for certification and surveillance audits.',
+      'AI-assisted ISO 50001 audit readiness and compliance intelligence for organisations preparing evidence for certification or surveillance.',
+    audience: 'Compliance teams, sustainability leaders, and audit sponsors',
+    value: 'Structured gap analysis and remediation priorities for early preparation.',
   },
   {
     name: 'Vandrix Sense',
@@ -33,8 +33,8 @@ export const solutions = [
     status: 'development',
     statusLabel: 'In development',
     description:
-      'Current-sensor and LoRaWAN data pipeline with time-series AI for machine and equipment-level operational energy intelligence.',
-    audience: 'Industrial operations, engineering and site reliability teams',
-    value: 'Detection of idle load, inefficiency, and abnormal runtime patterns.',
+      'Vertical operational intelligence using current sensors, LoRaWAN telemetry, and time-series AI at machine and equipment level.',
+    audience: 'Manufacturing and engineering teams in asset-intensive environments',
+    value: 'Detection of idle load, inefficiency, and abnormal operational behaviour.',
   },
 ]

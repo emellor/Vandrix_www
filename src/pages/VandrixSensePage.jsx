@@ -1,85 +1,86 @@
+import CtaPanel from '../components/CtaPanel'
+import PageHero from '../components/PageHero'
 import SectionBlock from '../components/SectionBlock'
-import StatusBadge from '../components/StatusBadge'
 
 function VandrixSensePage() {
   return (
-    <div className="space-y-8">
-      <section className="rounded-2xl border border-vx-border bg-vx-surface/70 p-8 lg:p-12">
-        <div className="flex flex-wrap items-center gap-3">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-vx-accent">Vandrix Sense</p>
-          <StatusBadge status="development">In development</StatusBadge>
-        </div>
-        <h1 className="mt-4 max-w-4xl text-4xl font-semibold tracking-tight text-vx-text lg:text-5xl">
-          Equipment-level sensing and AI insight for operational energy control.
-        </h1>
-        <p className="mt-5 max-w-3xl text-base leading-7 text-vx-muted">
-          Vandrix Sense uses current sensors, LoRaWAN connectivity, and time-series analytics to detect waste,
-          idle load, and inefficiency where site-level meter data cannot provide enough resolution.
-        </p>
-      </section>
+    <div className="space-y-8 lg:space-y-10">
+      <PageHero
+        eyebrow="Vandrix Sense"
+        status="development"
+        statusLabel="In development"
+        title="Vertical operational intelligence from sensing, telemetry, and time-series AI."
+        intro="Vandrix Sense is being developed as a focused product for asset-intensive operations. It combines current sensing, LoRaWAN telemetry, and machine-level analysis to expose operational energy waste and control issues."
+      />
 
-      <SectionBlock eyebrow="Why It Matters" title="Meter data is useful, but not always enough">
-        <p className="text-sm leading-7 text-vx-muted">
-          Half-hourly meter data can highlight aggregate anomalies, but it rarely explains which machine,
-          process, or operating condition is driving the issue. Vandrix Sense closes that gap.
+      <SectionBlock eyebrow="Context" title="Why meter data alone is often insufficient">
+        <p className="text-sm leading-7 text-vx-muted lg:text-base">
+          Site-level electricity data can indicate that something is wrong, but not which machine, system, or runtime pattern is responsible.
+          Vandrix Sense addresses that blind spot with targeted equipment-level visibility.
         </p>
       </SectionBlock>
 
-      <SectionBlock eyebrow="Where Sensing Adds Value" title="Targeted visibility at machine and equipment level">
+      <SectionBlock eyebrow="Where Sense Fits" title="A practical sensing stack for defined operational outcomes">
         <div className="grid gap-4 md:grid-cols-3">
-          {['Current sensors at load points', 'LoRaWAN telemetry for reliable low-power capture', 'Time-series modelling with operational context'].map((item) => (
-            <div key={item} className="rounded-xl border border-vx-border/80 bg-vx-surface-2/60 p-4 text-sm text-vx-muted">{item}</div>
-          ))}
-        </div>
-      </SectionBlock>
-
-      <SectionBlock eyebrow="Use Cases" title="Focused, outcome-led operational scenarios">
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            'Machinery left running outside planned hours',
-            'Compressor inefficiency and compressed air losses',
-            'HVAC runtime beyond schedule requirements',
-            'Refrigeration anomalies and unstable load behaviour',
-            'Line-level or site-level energy intensity shifts',
-            'Abnormal operational load patterns during production cycles',
+            'Current sensors on priority loads and process assets',
+            'LoRaWAN telemetry for resilient low-power collection',
+            'Time-series modelling with operational context and thresholds',
           ].map((item) => (
-            <div key={item} className="rounded-lg border border-vx-border/80 bg-vx-surface-2/50 px-4 py-3 text-sm text-vx-muted">{item}</div>
-          ))}
-        </div>
-      </SectionBlock>
-
-      <SectionBlock eyebrow="Platform Flow" title="How the sensing stack operates">
-        <div className="grid gap-4 md:grid-cols-4">
-          {[
-            ['Capture', 'Deploy sensing on priority assets and systems.'],
-            ['Stream', 'Transmit telemetry into the Vandrix time-series layer.'],
-            ['Detect', 'Run AI models for inefficiency, idle load, and abnormal behaviour.'],
-            ['Respond', 'Convert findings into operational interventions and follow-up tracking.'],
-          ].map(([step, detail]) => (
-            <div key={step} className="rounded-xl border border-vx-border/80 bg-vx-surface-2/60 p-4">
-              <p className="text-sm font-semibold text-vx-text">{step}</p>
-              <p className="mt-2 text-sm text-vx-muted">{detail}</p>
+            <div key={item} className="rounded-xl border border-vx-border/80 bg-vx-surface-2/60 p-4 text-sm leading-6 text-vx-muted">
+              {item}
             </div>
           ))}
         </div>
       </SectionBlock>
 
-      <SectionBlock eyebrow="Ideal Profiles" title="Best suited to technical and asset-intensive operations">
-        <p className="text-sm leading-7 text-vx-muted">
-          Particularly relevant for manufacturing, logistics, refrigeration-heavy environments, and estates
-          with critical plant where targeted sensing can accelerate waste reduction and operating control.
+      <SectionBlock eyebrow="Priority Use Cases" title="Initial vertical scenarios in scope">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            'Machinery running outside scheduled production windows',
+            'Compressor inefficiency and compressed air losses',
+            'HVAC runtime outside expected occupancy schedules',
+            'Refrigeration anomalies and unstable duty cycles',
+            'Line-level energy intensity shifts by product or period',
+            'Abnormal load signatures linked to operational faults',
+          ].map((item) => (
+            <div key={item} className="rounded-lg border border-vx-border/80 bg-vx-surface-2/50 px-4 py-3 text-sm text-vx-muted">
+              {item}
+            </div>
+          ))}
+        </div>
+      </SectionBlock>
+
+      <SectionBlock eyebrow="Delivery Model" title="How Vandrix Sense operates in practice">
+        <div className="grid gap-4 md:grid-cols-4">
+          {[
+            ['Instrument', 'Deploy sensing at selected assets and systems.'],
+            ['Stream', 'Collect time-series telemetry into the Vandrix data layer.'],
+            ['Analyse', 'Apply AI detection logic for inefficiency and abnormal behaviour.'],
+            ['Intervene', 'Translate findings into clear operational actions.'],
+          ].map(([step, detail]) => (
+            <div key={step} className="rounded-xl border border-vx-border/80 bg-vx-surface-2/60 p-4">
+              <p className="text-sm font-semibold text-vx-text">{step}</p>
+              <p className="mt-2 text-sm leading-6 text-vx-muted">{detail}</p>
+            </div>
+          ))}
+        </div>
+      </SectionBlock>
+
+      <SectionBlock eyebrow="Ideal Customers" title="Designed for engineering-led and multi-site operations">
+        <p className="text-sm leading-7 text-vx-muted lg:text-base">
+          Best suited to manufacturing sites, process facilities, logistics operations, and estates with critical plant where
+          machine-level intelligence can materially improve efficiency and runtime control.
         </p>
       </SectionBlock>
 
-      <section className="rounded-2xl border border-vx-accent/50 bg-vx-accent/10 p-8">
-        <h2 className="text-3xl font-semibold text-vx-text">Discuss a Vandrix Sense pilot</h2>
-        <p className="mt-4 max-w-2xl text-sm leading-7 text-vx-muted">
-          We are working with early partners to shape vertical-focused deployments with clear operational outcomes.
-        </p>
-        <a href="mailto:hello@vandrix.co.uk" className="mt-6 inline-flex rounded-md bg-vx-text px-5 py-2.5 text-sm font-semibold text-vx-bg">
-          Start pilot discussions
-        </a>
-      </section>
+      <CtaPanel
+        title="Discuss a Vandrix Sense pilot"
+        body="We are working with early partners to shape specific vertical deployments with clear operational objectives."
+        primaryLabel="Discuss a pilot"
+        secondaryLabel="Request early access"
+        secondaryHref="mailto:hello@vandrix.co.uk?subject=Request%20early%20access%20for%20Vandrix%20Sense"
+      />
     </div>
   )
 }

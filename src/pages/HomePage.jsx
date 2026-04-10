@@ -1,73 +1,117 @@
 import { Link } from 'react-router-dom'
+import CtaPanel from '../components/CtaPanel'
+import PageHero from '../components/PageHero'
 import SectionBlock from '../components/SectionBlock'
 import StatusBadge from '../components/StatusBadge'
-import { solutions } from '../data/siteContent'
+
+const homepageSolutions = [
+  {
+    name: 'WattGuard',
+    href: '/wattguard',
+    status: 'available',
+    statusLabel: 'Available now',
+    summary:
+      'Commercially ready analysis of half-hourly meter data to identify out-of-hours waste, baseload drift, and avoidable electricity spend.',
+    forWho: 'Finance, operations, and estates leaders across multi-site organisations',
+    outcome:
+      'No hardware, no site visits, no major IT integration. Rapid findings and practical financial actions.',
+  },
+  {
+    name: 'Vandrix ISO',
+    href: '/vandrix-iso',
+    status: 'development',
+    statusLabel: 'In development',
+    summary:
+      'AI-assisted ISO 50001 audit readiness and compliance intelligence for teams preparing evidence ahead of certification and surveillance.',
+    forWho: 'Compliance leads, sustainability teams, and audit sponsors',
+    outcome:
+      'Structured gap visibility, evidence quality assessment, and remediation guidance for early preparation.',
+  },
+  {
+    name: 'Vandrix Sense',
+    href: '/vandrix-sense',
+    status: 'development',
+    statusLabel: 'In development',
+    summary:
+      'Vertical operational intelligence using current sensors, LoRaWAN telemetry, and time-series AI at machine and equipment level.',
+    forWho: 'Manufacturing, commercial estates, and engineering-led operations',
+    outcome:
+      'Detection of idle load, runtime inefficiency, and abnormal energy patterns in defined operational use cases.',
+  },
+]
 
 function HomePage() {
   return (
     <div className="space-y-8 lg:space-y-10">
-      <section className="rounded-2xl border border-vx-border bg-vx-surface/70 p-8 lg:p-12">
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-vx-accent">Energy Intelligence Platform</p>
-        <h1 className="mt-4 max-w-4xl text-4xl font-semibold tracking-tight text-vx-text lg:text-6xl">
-          Practical energy intelligence for measurable commercial outcomes.
-        </h1>
-        <p className="mt-6 max-w-3xl text-base leading-7 text-vx-muted lg:text-lg">
-          Vandrix helps organisations reduce avoidable energy cost, improve operational visibility,
-          and strengthen compliance readiness through software analytics, applied AI, and industrial sensing.
-        </p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <a href="#solutions" className="rounded-md bg-vx-text px-5 py-2.5 text-sm font-semibold text-vx-bg hover:opacity-90">
-            Explore Solutions
+      <PageHero
+        eyebrow="Vandrix Energy Intelligence"
+        title="Energy intelligence built for operational and commercial decision-makers."
+        intro="Vandrix combines consulting-grade rigour, software delivery, and industrial sensing to reduce avoidable energy cost, improve operational visibility, and strengthen compliance readiness."
+      >
+        <div className="flex flex-wrap gap-3">
+          <a href="#solutions" className="rounded-md bg-vx-text px-5 py-2.5 text-sm font-semibold text-vx-bg transition hover:opacity-90">
+            Explore solutions
           </a>
-          <a href="#contact" className="rounded-md border border-vx-border px-5 py-2.5 text-sm font-semibold text-vx-text hover:border-vx-accent">
-            Book a Conversation
+          <a href="#contact" className="rounded-md border border-vx-border px-5 py-2.5 text-sm font-semibold text-vx-text transition hover:border-vx-accent">
+            Book a conversation
           </a>
         </div>
-      </section>
+      </PageHero>
 
       <SectionBlock
         eyebrow="Positioning"
-        title="A specialist company spanning energy, compliance, and operations"
-        intro="Vandrix combines consulting-grade thinking, production software delivery, and technical sensing capability. We focus on action and measurable performance, not dashboard noise."
+        title="A specialist UK firm at the intersection of consulting, SaaS, and technical IoT"
+        intro="Vandrix is the parent company behind a focused product portfolio. We combine strategic judgement with deployable products to deliver measurable outcomes across estates, sites, and industrial operations."
       >
         <div className="grid gap-4 md:grid-cols-2">
-          {['Energy intelligence', 'Compliance intelligence', 'Operational intelligence', 'Software, AI, and sensing in one model'].map((item) => (
-            <div key={item} className="rounded-xl border border-vx-border/80 bg-vx-surface-2/70 p-4 text-sm text-vx-text">
+          {[
+            'Energy intelligence focused on financial waste, controls, and site-level performance.',
+            'Compliance intelligence designed for ISO 50001 evidence quality and audit readiness.',
+            'Operational intelligence through targeted sensing where meter data lacks resolution.',
+            'One architecture combining software analytics, applied AI, and industrial telemetry.',
+          ].map((item) => (
+            <div key={item} className="rounded-xl border border-vx-border/80 bg-vx-surface-2/70 p-4 text-sm leading-6 text-vx-muted">
               {item}
             </div>
           ))}
         </div>
       </SectionBlock>
 
-      <SectionBlock eyebrow="Solutions" title="Three products, one coherent operating model" className="scroll-mt-24" >
+      <SectionBlock
+        eyebrow="Solutions"
+        title="Three products under one Vandrix architecture"
+        intro="WattGuard is available now. Vandrix ISO and Vandrix Sense are in development with pilot and early-access discussions open."
+        className="scroll-mt-24"
+      >
         <div id="solutions" className="grid gap-4 lg:grid-cols-3">
-          {solutions.map((solution) => (
+          {homepageSolutions.map((solution) => (
             <article key={solution.name} className="rounded-xl border border-vx-border/80 bg-vx-surface-2/70 p-5">
-              <div className="flex items-center justify-between gap-3">
+              <div className="flex items-start justify-between gap-3">
                 <h3 className="text-xl font-semibold text-vx-text">{solution.name}</h3>
                 <StatusBadge status={solution.status}>{solution.statusLabel}</StatusBadge>
               </div>
-              <p className="mt-4 text-sm leading-6 text-vx-muted">{solution.description}</p>
-              <p className="mt-4 text-sm text-vx-text"><span className="text-vx-muted">For:</span> {solution.audience}</p>
-              <p className="mt-2 text-sm text-vx-text"><span className="text-vx-muted">Value:</span> {solution.value}</p>
-              <Link to={solution.href} className="mt-5 inline-flex text-sm font-semibold text-vx-accent hover:underline">
-                View product
+              <p className="mt-4 text-sm leading-6 text-vx-muted">{solution.summary}</p>
+              <p className="mt-4 text-sm leading-6 text-vx-text">
+                <span className="text-vx-muted">For:</span> {solution.forWho}
+              </p>
+              <p className="mt-2 text-sm leading-6 text-vx-text">
+                <span className="text-vx-muted">Outcome:</span> {solution.outcome}
+              </p>
+              <Link to={solution.href} className="mt-5 inline-flex text-sm font-semibold text-vx-accent transition hover:underline">
+                View details
               </Link>
             </article>
           ))}
         </div>
       </SectionBlock>
 
-      <SectionBlock
-        eyebrow="Why Vandrix"
-        title="Built for teams that need technical depth and commercial clarity"
-      >
+      <SectionBlock eyebrow="Why Vandrix" title="Designed for operating reality, not dashboard theatre">
         <div className="grid gap-4 md:grid-cols-2">
           {[
-            'Premium consulting mindset with practical delivery discipline.',
-            'Product-led outputs designed for action at site and portfolio level.',
-            'Sensor and time-series capability for machine-level insight where meter data is not enough.',
-            'Outcome-led approach centred on waste reduction, operating control, and audit confidence.',
+            'Consulting-grade framing of risk, opportunity, and intervention priorities.',
+            'Commercially focused outputs built for leadership teams and site operators.',
+            'Technical sensing depth for machinery and equipment-level diagnosis.',
+            'Clear alignment to cost reduction, operational control, and assurance outcomes.',
           ].map((point) => (
             <p key={point} className="rounded-xl border border-vx-border/80 bg-vx-surface-2/60 p-4 text-sm leading-6 text-vx-muted">
               {point}
@@ -76,13 +120,13 @@ function HomePage() {
         </div>
       </SectionBlock>
 
-      <SectionBlock eyebrow="Operating Model" title="How Vandrix works">
+      <SectionBlock eyebrow="How Vandrix Works" title="A practical operating model for sustained improvement">
         <div className="grid gap-4 md:grid-cols-4">
           {[
-            ['Measure', 'Collect reliable data from meters, documents, and sensing points.'],
-            ['Interpret', 'Apply analytics and AI to identify material risk, waste, and weak control.'],
-            ['Act', 'Provide prioritised interventions that teams can execute immediately.'],
-            ['Assure', 'Track progress and strengthen compliance evidence over time.'],
+            ['Measure', 'Capture reliable data from half-hourly meters, documentation, and sensing points.'],
+            ['Interpret', 'Use analytics and applied AI to identify material waste, weak controls, and risk.'],
+            ['Act', 'Prioritise interventions by site, asset, and expected commercial impact.'],
+            ['Assure', 'Track outcomes and strengthen evidence for governance and audit activity.'],
           ].map(([step, detail]) => (
             <div key={step} className="rounded-xl border border-vx-border/80 bg-vx-surface-2/60 p-4">
               <p className="text-sm font-semibold text-vx-text">{step}</p>
@@ -92,15 +136,15 @@ function HomePage() {
         </div>
       </SectionBlock>
 
-      <SectionBlock eyebrow="Industry Fit" title="Relevant across asset-heavy and multi-site operations">
+      <SectionBlock eyebrow="Industries" title="Aligned to multi-site and asset-intensive environments">
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            'Manufacturing and processing facilities',
-            'Multi-site commercial property portfolios',
-            'Retail and mixed-estate operations',
-            'Logistics and distribution environments',
-            'Public and private estates',
-            'Asset-heavy operations with variable load profiles',
+            'Manufacturing and process environments',
+            'Commercial buildings and mixed estates',
+            'Retail portfolios and distributed sites',
+            'Logistics and distribution operations',
+            'Public and private sector estates',
+            'High-load operations with variable demand profiles',
           ].map((sector) => (
             <div key={sector} className="rounded-lg border border-vx-border/80 bg-vx-surface-2/50 px-4 py-3 text-sm text-vx-muted">
               {sector}
@@ -109,24 +153,14 @@ function HomePage() {
         </div>
       </SectionBlock>
 
-      <section id="contact" className="rounded-2xl border border-vx-accent/50 bg-vx-accent/10 p-8 lg:p-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-vx-accent">Contact</p>
-        <h2 className="mt-3 text-3xl font-semibold tracking-tight text-vx-text lg:text-4xl">
-          Discuss a demo, pilot, or rollout plan.
-        </h2>
-        <p className="mt-4 max-w-2xl text-sm leading-7 text-vx-muted lg:text-base">
-          Whether you need rapid insights from meter data today or early access to ISO and sensing pilots,
-          we can scope a practical engagement around your objectives.
-        </p>
-        <div className="mt-6 flex flex-wrap gap-3">
-          <a href="mailto:hello@vandrix.co.uk" className="rounded-md bg-vx-text px-5 py-2.5 text-sm font-semibold text-vx-bg">
-            hello@vandrix.co.uk
-          </a>
-          <a href="tel:+4402000000000" className="rounded-md border border-vx-border px-5 py-2.5 text-sm font-semibold text-vx-text">
-            +44 (0)20 0000 0000
-          </a>
-        </div>
-      </section>
+      <CtaPanel
+        eyebrow="Commercial Enquiries"
+        title="Book a conversation with the Vandrix team"
+        body="If you are prioritising immediate cost recovery, pilot planning, or ISO 50001 preparation, we can advise on the right starting point across the Vandrix portfolio."
+        primaryLabel="Book a conversation"
+        secondaryLabel="Discuss a pilot or early access"
+        secondaryHref="mailto:hello@vandrix.co.uk?subject=Discuss%20pilot%20or%20early%20access"
+      />
     </div>
   )
 }
