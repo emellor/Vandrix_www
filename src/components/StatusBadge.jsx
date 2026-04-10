@@ -1,6 +1,6 @@
 const statusStyles = {
-  available: 'border-vx-success/80 bg-vx-success/10 text-[#9ee3d6]',
-  development: 'border-vx-accent/80 bg-vx-accent/10 text-[#bdc9ff]',
+  available: 'border-[#16a34a]/25 bg-[#16a34a]/10 text-[#166534]',
+  development: 'border-[#2563EB]/20 bg-[#2563EB]/10 text-[#1e40af]',
 }
 
 function StatusBadge({ status, children }) {

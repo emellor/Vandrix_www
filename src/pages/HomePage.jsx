@@ -1,4 +1,5 @@
 import StatusBadge from '../components/StatusBadge'
+import { Activity, Factory, FileText, Gauge, ShieldCheck, Workflow } from 'lucide-react'
 
 const homepageSolutions = [
   {
@@ -38,87 +39,82 @@ const homepageSolutions = [
 
 function HomePage() {
   return (
-    <div className="space-y-14 lg:space-y-20">
-      <section className="relative overflow-hidden rounded-3xl border border-white/20 bg-vx-panel px-6 py-14 text-center shadow-vx sm:px-8 lg:px-14 lg:py-20">
-        <div className="pointer-events-none absolute inset-0 grid-overlay opacity-35" />
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-vx-accent/10 to-transparent" />
-        <div className="relative mx-auto max-w-4xl">
-          <span className="inline-flex rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-vx-soft backdrop-blur">
-            ISO 50001 Automation
-          </span>
-          <h1 className="mt-6 text-balance text-5xl leading-tight text-vx-text sm:text-6xl">
-            Security, accuracy, and speed for enterprise energy intelligence.
-          </h1>
-          <p className="mx-auto mt-6 max-w-3xl text-pretty text-base leading-8 text-vx-muted lg:text-lg">
-            Vandrix is the parent platform for commercially serious energy analytics, audit readiness intelligence,
-            and machine-level operational sensing across multi-site portfolios.
-          </p>
-          <div className="mt-9 flex flex-wrap justify-center gap-3">
-            <a
-              href="#solutions"
-              className="rounded-md bg-vx-accent px-7 py-3 text-base font-semibold text-white shadow-sm shadow-vx-accent/30 transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-vx-accent/40"
-            >
-              Explore solutions
-            </a>
-            <a
-              href="#contact"
-              className="rounded-md border border-white/25 bg-white/5 px-7 py-3 text-base font-semibold text-vx-text transition hover:bg-white/10"
-            >
-              Book a conversation
-            </a>
+    <div className="space-y-24 py-6 lg:py-10">
+      <section className="relative overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-b from-slate-50 to-white px-6 py-16 sm:px-8 lg:px-12 lg:py-20">
+        <div className="pointer-events-none absolute inset-0 grid-overlay opacity-30" />
+        <div className="relative grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div>
+            <span className="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#3C444D]">
+              ISO 50001 Automation
+            </span>
+            <h1 className="mt-6 text-balance text-5xl leading-tight text-[#1a1c1e] sm:text-6xl">
+              Industrial-grade <span className="text-[#F16122]">intelligence</span> for multi-site energy assurance.
+            </h1>
+            <p className="mt-6 max-w-xl text-pretty text-base leading-8 text-[#3C444D] lg:text-lg">
+              Vandrix helps manufacturing and commercial estates teams convert fragmented energy data into
+              accurate, actionable decisions across cost, compliance, and operational performance.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <a
+                href="#solutions"
+                className="rounded-md bg-[#F16122] px-8 py-4 text-base font-bold text-white shadow-lg transition-all hover:bg-[#d44d1a]"
+              >
+                Explore solutions
+              </a>
+              <a
+                href="#contact"
+                className="rounded-md border border-slate-200 bg-white px-8 py-4 text-base font-semibold text-[#1a1c1e] transition hover:bg-slate-50"
+              >
+                Book a conversation
+              </a>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 bg-white p-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#3C444D]">Live data workflow</p>
+            <div className="mt-6 grid grid-cols-12 items-end gap-2">
+              {[42, 56, 35, 74, 58, 86, 49, 63, 77, 52, 68, 91].map((bar, index) => (
+                <div
+                  key={`${bar}-${index}`}
+                  className="rounded-sm"
+                  style={{
+                    height: `${bar * 1.3}px`,
+                    backgroundColor: index % 3 === 0 ? '#F16122' : '#4f46e5',
+                  }}
+                />
+              ))}
+            </div>
+            <div className="mt-5 grid grid-cols-3 gap-3 text-xs">
+              <div className="rounded-lg bg-[#f4f5f7] p-3 text-[#3C444D]">Source files</div>
+              <div className="rounded-lg bg-[#f4f5f7] p-3 text-[#3C444D]">AI processing</div>
+              <div className="rounded-lg bg-[#f4f5f7] p-3 text-[#3C444D]">Executive output</div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="rounded-3xl border border-white/15 bg-vx-panel/70 p-7 lg:p-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-vx-accent">Positioning</p>
-        <h2 className="mt-3 text-3xl text-vx-text lg:text-4xl">
-          Premium consulting judgement. Product delivery discipline. Industrial-grade data depth.
-        </h2>
-        <div className="mt-7 grid gap-4 md:grid-cols-2">
-          {[
-            'Energy intelligence focused on financial waste, controls, and site-level performance.',
-            'Compliance intelligence designed for ISO 50001 evidence quality and audit readiness.',
-            'Operational intelligence through targeted sensing where meter data lacks resolution.',
-            'One architecture combining software analytics, applied AI, and industrial telemetry.',
-          ].map((item) => (
-            <div
-              key={item}
-              className="rounded-2xl border border-white/20 bg-white/5 p-5 text-sm leading-6 text-vx-muted backdrop-blur-sm"
-            >
-              {item}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="solutions" className="scroll-mt-24 rounded-3xl border border-white/15 bg-vx-panel/70 p-7 lg:p-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-vx-accent">Solutions</p>
-        <h2 className="mt-3 text-3xl text-vx-text lg:text-4xl">Three focused products under one Vandrix parent brand</h2>
-        <p className="mt-4 max-w-3xl text-sm leading-7 text-vx-muted lg:text-base">
-          WattGuard is commercially ready today. Vandrix ISO and Vandrix Sense are in active development with
-          structured pilot and early-access pathways.
+      <section className="rounded-2xl border border-slate-200 bg-white p-8 lg:p-12">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#3C444D]">Solutions</p>
+        <h2 className="mt-3 text-3xl text-[#1a1c1e] lg:text-4xl">Three products under one enterprise architecture</h2>
+        <p className="mt-4 max-w-3xl text-sm leading-7 text-[#3C444D] lg:text-base">
+          WattGuard is commercially live. Vandrix ISO and Vandrix Sense are in development with pilot pathways
+          for organisations that need early capability in compliance and machine-level operations intelligence.
         </p>
-        <div className="mt-8 grid gap-4 lg:grid-cols-6">
+        <div id="solutions" className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {homepageSolutions.map((solution) => (
-            <article
-              key={solution.name}
-              className={`rounded-2xl border border-white/20 bg-white/5 p-6 backdrop-blur-sm ${
-                solution.name === 'WattGuard' ? 'lg:col-span-3' : 'lg:col-span-3'
-              }`}
-            >
+            <article key={solution.name} className="rounded-xl border border-slate-200 bg-[#f4f5f7] p-6">
               <div className="flex items-start justify-between gap-3">
-                <h3 className="text-xl font-semibold text-vx-text">{solution.name}</h3>
+                <h3 className="text-xl font-semibold text-[#1a1c1e]">{solution.name}</h3>
                 <StatusBadge status={solution.status}>{solution.statusLabel}</StatusBadge>
               </div>
-              <p className="mt-4 text-sm leading-6 text-vx-muted">{solution.summary}</p>
-              <p className="mt-4 text-sm leading-6 text-vx-text">
-                <span className="text-vx-muted">For:</span> {solution.forWho}
+              <p className="mt-4 text-sm leading-6 text-[#3C444D]">{solution.summary}</p>
+              <p className="mt-4 text-sm leading-6 text-[#1a1c1e]">
+                <span className="text-[#3C444D]">For:</span> {solution.forWho}
               </p>
-              <p className="mt-2 text-sm leading-6 text-vx-text">
-                <span className="text-vx-muted">Outcome:</span> {solution.outcome}
+              <p className="mt-2 text-sm leading-6 text-[#1a1c1e]">
+                <span className="text-[#3C444D]">Outcome:</span> {solution.outcome}
               </p>
-              <a href={solution.href} className="mt-5 inline-flex text-sm font-semibold text-vx-accent transition hover:underline">
+              <a href={solution.href} className="mt-5 inline-flex text-sm font-semibold text-[#2563EB] transition hover:underline">
                 View details
               </a>
             </article>
@@ -126,88 +122,83 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="rounded-3xl border border-white/15 bg-vx-panel/70 p-7 lg:p-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-vx-accent">Why Vandrix</p>
-        <h2 className="mt-3 text-3xl text-vx-text lg:text-4xl">Built for enterprise-grade assurance and delivery confidence</h2>
-        <div className="mt-7 grid gap-4 md:grid-cols-2">
+      <section className="rounded-2xl border border-slate-200 bg-white p-8 lg:p-12">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#3C444D]">Why Vandrix</p>
+        <h2 className="mt-3 text-3xl text-[#1a1c1e] lg:text-4xl">Built for security, accuracy, and delivery speed</h2>
+        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {[
-            'Consulting-grade framing of risk, opportunity, and intervention priorities.',
-            'Commercially focused outputs built for leadership teams and site operators.',
-            'Technical sensing depth for machinery and equipment-level diagnosis.',
-            'Clear alignment to cost reduction, operational control, and assurance outcomes.',
-          ].map((point) => (
-            <p key={point} className="rounded-2xl border border-white/20 bg-white/5 p-5 text-sm leading-7 text-vx-muted backdrop-blur-sm">
-              {point}
-            </p>
+            [ShieldCheck, 'Assurance-first methodology with compliance-grade evidence trails.'],
+            [Gauge, 'High-accuracy analytics designed for operational and financial decisions.'],
+            [Activity, 'Fast delivery model for immediate intervention planning and action.'],
+          ].map(([Icon, text]) => (
+            <div key={text} className="rounded-xl border border-slate-200 bg-[#f4f5f7] p-5">
+              <Icon size={24} strokeWidth={2.4} className="text-[#F16122]" />
+              <p className="mt-3 text-sm leading-7 text-[#3C444D]">{text}</p>
+            </div>
           ))}
         </div>
       </section>
 
-      <section className="rounded-3xl border border-white/15 bg-vx-panel/70 p-7 lg:p-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-vx-accent">How It Works</p>
-        <h2 className="mt-3 text-3xl text-vx-text lg:text-4xl">From raw evidence to board-ready intelligence</h2>
+      <section className="rounded-2xl border border-slate-200 bg-white p-8 lg:p-12">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#3C444D]">How It Works</p>
+        <h2 className="mt-3 text-3xl text-[#1a1c1e] lg:text-4xl">From unstructured evidence to decision-ready outputs</h2>
         <div className="mt-8 grid gap-5 lg:grid-cols-[1fr_auto_1fr_auto_1fr] lg:items-center">
-          <div className="rounded-2xl border border-white/20 bg-white/5 p-6 backdrop-blur-sm">
-            <p className="text-xs uppercase tracking-[0.14em] text-vx-muted">Input</p>
-            <p className="mt-2 text-lg text-vx-text">Dirty PDF / meter exports</p>
-            <p className="mt-2 text-sm leading-6 text-vx-muted">Operational reports, audit evidence, and half-hourly data from live estates.</p>
+          <div className="rounded-xl border border-slate-200 bg-[#f4f5f7] p-6">
+            <FileText size={26} strokeWidth={2.3} className="text-[#F16122]" />
+            <p className="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#3C444D]">Dirty PDF</p>
+            <p className="mt-2 text-sm leading-6 text-[#3C444D]">Meter exports, audit files, and operational documents.</p>
           </div>
-          <div className="hidden h-0.5 w-10 bg-vx-accent/70 lg:block" />
-          <div className="rounded-2xl border border-white/20 bg-white/5 p-6 backdrop-blur-sm">
-            <p className="text-xs uppercase tracking-[0.14em] text-vx-muted">Processing</p>
-            <div className="mt-2 flex items-center gap-2">
-              <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-vx-accent" />
-              <p className="text-lg text-vx-text">AI interpretation pipeline</p>
-            </div>
-            <p className="mt-2 text-sm leading-6 text-vx-muted">Applied AI and analytics engines validate, map, and prioritise findings.</p>
+          <Workflow size={24} strokeWidth={2.4} className="mx-auto hidden text-[#2563EB] lg:block" />
+          <div className="rounded-xl border border-slate-200 bg-[#f4f5f7] p-6">
+            <span className="inline-flex h-2.5 w-2.5 animate-pulse rounded-full bg-[#2563EB]" />
+            <p className="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#3C444D]">AI / Processing</p>
+            <p className="mt-2 text-sm leading-6 text-[#3C444D]">Structured interpretation, validation, and prioritisation.</p>
           </div>
-          <div className="hidden h-0.5 w-10 bg-vx-accent/70 lg:block" />
-          <div className="rounded-2xl border border-white/20 bg-white/5 p-6 backdrop-blur-sm">
-            <p className="text-xs uppercase tracking-[0.14em] text-vx-muted">Output</p>
-            <p className="mt-2 text-lg text-vx-text">Clean board-ready report</p>
-            <p className="mt-2 text-sm leading-6 text-vx-muted">Clear actions, quantified impact, and audit-grade evidence confidence.</p>
+          <Workflow size={24} strokeWidth={2.4} className="mx-auto hidden text-[#2563EB] lg:block" />
+          <div className="rounded-xl border border-slate-200 bg-[#f4f5f7] p-6">
+            <FileText size={26} strokeWidth={2.3} className="text-[#F16122]" />
+            <p className="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#3C444D]">Clean document</p>
+            <p className="mt-2 text-sm leading-6 text-[#3C444D]">Action plans and leadership-ready evidence output.</p>
           </div>
         </div>
       </section>
 
-      <section className="rounded-3xl border border-white/15 bg-vx-panel/70 p-7 lg:p-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-vx-accent">Industries</p>
-        <h2 className="mt-3 text-3xl text-vx-text lg:text-4xl">Designed for high-spend, high-accountability operations</h2>
-        <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="rounded-2xl border border-slate-200 bg-white p-8 lg:p-12">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#3C444D]">Industries</p>
+        <h2 className="mt-3 text-3xl text-[#1a1c1e] lg:text-4xl">Trusted across high-value industrial and estate portfolios</h2>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            'Manufacturing and process environments',
-            'Commercial buildings and mixed estates',
-            'Retail portfolios and distributed sites',
-            'Logistics and distribution operations',
-            'Public and private sector estates',
-            'High-load operations with variable demand profiles',
-          ].map((sector) => (
-            <div key={sector} className="rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-sm text-vx-muted backdrop-blur-sm">
-              {sector}
+            [Factory, 'Manufacturing and process operations'],
+            [Gauge, 'Commercial buildings and estates'],
+            [ShieldCheck, 'Public sector and regulated portfolios'],
+          ].map(([Icon, label]) => (
+            <div key={label} className="rounded-xl border border-slate-200 bg-[#f4f5f7] p-5">
+              <Icon size={24} strokeWidth={2.4} className="text-[#F16122]" />
+              <p className="mt-3 text-sm text-[#3C444D]">{label}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="contact" className="rounded-3xl border border-white/20 bg-vx-panel p-7 text-center shadow-vx lg:p-12">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-vx-accent">Commercial Enquiries</p>
-        <h2 className="mt-3 text-3xl text-vx-text lg:text-4xl">Ready for a board-level energy intelligence discussion?</h2>
-        <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-vx-muted lg:text-base">
-          Speak with Vandrix about immediate WattGuard rollout, ISO readiness planning, or vertical sensing pilots
-          for complex estates and industrial operations.
+      <section id="contact" className="rounded-2xl border border-slate-200 bg-white p-8 text-center lg:p-12">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#3C444D]">Commercial Enquiries</p>
+        <h2 className="mt-3 text-3xl text-[#1a1c1e] lg:text-4xl">Discuss deployment, pilots, or audit programmes</h2>
+        <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-[#3C444D] lg:text-base">
+          Speak with Vandrix about WattGuard rollout, Vandrix ISO pilot access, or Vandrix Sense operational
+          intelligence design for multi-site industrial environments.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <a
             href="mailto:hello@vandrix.co.uk?subject=Book%20a%20conversation"
-            className="rounded-md bg-vx-accent px-7 py-3 text-base font-semibold text-white shadow-sm shadow-vx-accent/30 transition hover:brightness-110"
+            className="rounded-md bg-[#F16122] px-8 py-4 text-base font-bold text-white shadow-lg transition-all hover:bg-[#d44d1a]"
           >
             Book a conversation
           </a>
           <a
-            href="mailto:hello@vandrix.co.uk?subject=Discuss%20a%20pilot%20or%20early%20access"
-            className="rounded-md border border-white/25 bg-white/5 px-7 py-3 text-base font-semibold text-vx-text transition hover:bg-white/10"
+            href="mailto:hello@vandrix.co.uk?subject=Discuss%20pilot%20or%20early%20access"
+            className="rounded-md border border-slate-200 bg-white px-8 py-4 text-base font-semibold text-[#1a1c1e] transition hover:bg-slate-50"
           >
-            Discuss a pilot or early access
+            Discuss a pilot
           </a>
         </div>
       </section>

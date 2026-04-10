@@ -9,11 +9,11 @@ function SiteLayout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <div className="min-h-screen">
-      <header className="sticky top-0 z-30 border-b border-vx-border/70 bg-vx-bg/92 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-6 lg:px-10">
-          <Link to="/" className="text-lg font-semibold tracking-[0.02em] text-vx-text sm:text-xl">
-            Vandrix
+    <div className="min-h-screen bg-white">
+      <header className="sticky top-0 z-30 border-b border-slate-100 bg-white">
+        <div className="mx-auto flex w-full max-w-[1240px] items-center justify-between gap-4 px-5 py-4 sm:px-6 lg:px-8">
+          <Link to="/" className="text-lg font-bold uppercase tracking-[0.14em] text-[#1a1c1e] sm:text-xl">
+            VANDRIX
           </Link>
           <nav className="hidden items-center gap-6 lg:flex">
             {navigationItems.map((item) => (
@@ -25,14 +25,14 @@ function SiteLayout() {
           <div className="flex items-center gap-2">
             <a
               href="/#contact"
-              className="hidden rounded-md bg-vx-accent px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-vx-accent/30 transition hover:brightness-110 lg:inline-flex"
+              className="hidden rounded-md bg-[#F16122] px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[#d44d1a] lg:inline-flex"
             >
               Book a conversation
             </a>
             <button
               type="button"
               onClick={() => setIsMenuOpen(true)}
-              className="inline-flex rounded-md border border-vx-border bg-vx-panel px-3 py-2 text-sm font-medium text-vx-text lg:hidden"
+              className="inline-flex rounded-md border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-[#1a1c1e] lg:hidden"
             >
               Menu
             </button>
@@ -41,23 +41,23 @@ function SiteLayout() {
       </header>
 
       {isMenuOpen ? (
-        <div className="fixed inset-0 z-40 bg-vx-bg/95 p-6 backdrop-blur lg:hidden">
-          <div className="mx-auto flex w-full max-w-7xl items-center justify-between">
-            <p className="text-lg font-semibold text-vx-text">Navigation</p>
+        <div className="fixed inset-0 z-40 bg-white p-6 lg:hidden">
+          <div className="mx-auto flex w-full max-w-[1240px] items-center justify-between">
+            <p className="text-lg font-semibold text-[#1a1c1e]">Navigation</p>
             <button
               type="button"
               onClick={() => setIsMenuOpen(false)}
-              className="rounded-md border border-vx-border px-3 py-2 text-sm text-vx-text"
+              className="rounded-md border border-slate-200 px-3 py-2 text-sm text-[#1a1c1e]"
             >
               Close
             </button>
           </div>
-          <nav className="mx-auto mt-8 flex w-full max-w-7xl flex-col gap-3">
+          <nav className="mx-auto mt-8 flex w-full max-w-[1240px] flex-col gap-3">
             {navigationItems.map((item) => (
               <NavLink
                 key={item.href}
                 to={item.href}
-                className="rounded-lg border border-vx-border bg-vx-panel px-4 py-3 text-base text-vx-text"
+                className="rounded-lg border border-slate-200 bg-[#f8fafc] px-4 py-3 text-base text-[#1a1c1e]"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
@@ -65,7 +65,7 @@ function SiteLayout() {
             ))}
             <a
               href="/#contact"
-              className="mt-4 inline-flex rounded-md bg-vx-accent px-4 py-3 text-center text-sm font-semibold text-white"
+              className="mt-4 inline-flex rounded-md bg-[#F16122] px-4 py-3 text-center text-sm font-bold text-white"
               onClick={() => setIsMenuOpen(false)}
             >
               Book a conversation
@@ -74,27 +74,27 @@ function SiteLayout() {
         </div>
       ) : null}
 
-      <main className="mx-auto w-full max-w-7xl px-5 py-8 sm:px-6 lg:px-10 lg:py-14">
+      <main className="mx-auto w-full max-w-[1240px] px-5 py-8 sm:px-6 lg:px-8 lg:py-12">
         <Outlet />
       </main>
 
-      <footer className="border-t border-vx-border/80 bg-[#060b14]">
-        <div className="mx-auto grid w-full max-w-7xl gap-10 px-5 py-12 sm:px-6 lg:grid-cols-4 lg:px-10">
+      <footer className="border-t border-slate-800 bg-[#1a1c1e]">
+        <div className="mx-auto grid w-full max-w-[1240px] gap-10 px-5 py-14 text-white sm:px-6 lg:grid-cols-4 lg:px-8">
           <div className="lg:col-span-2">
-            <p className="text-lg font-semibold text-vx-text">Vandrix</p>
-            <p className="mt-3 max-w-lg text-sm leading-7 text-vx-muted">
+            <p className="text-lg font-semibold text-white">VANDRIX</p>
+            <p className="mt-3 max-w-lg text-sm leading-7 text-slate-300">
               Specialist energy intelligence for organisations managing complex estates,
               operational energy performance, and compliance assurance.
             </p>
-            <p className="mt-4 text-xs text-vx-muted">WattGuard is part of the Vandrix product portfolio.</p>
+            <p className="mt-4 text-xs text-slate-400">WattGuard is part of the Vandrix product portfolio.</p>
           </div>
 
           <div>
-            <p className="text-sm font-semibold text-vx-text">Pages</p>
-            <ul className="mt-3 space-y-2 text-sm text-vx-muted">
+            <p className="text-sm font-semibold text-white">Pages</p>
+            <ul className="mt-3 space-y-2 text-sm text-slate-300">
               {navigationItems.map((item) => (
                 <li key={item.href}>
-                  <Link to={item.href} className="hover:text-vx-text">
+                  <Link to={item.href} className="hover:text-white">
                     {item.label}
                   </Link>
                 </li>
@@ -103,13 +103,13 @@ function SiteLayout() {
           </div>
 
           <div>
-            <p className="text-sm font-semibold text-vx-text">Commercial contact</p>
-            <p className="mt-3 text-sm leading-7 text-vx-muted">
+            <p className="text-sm font-semibold text-white">Commercial contact</p>
+            <p className="mt-3 text-sm leading-7 text-slate-300">
               Book a conversation, discuss a pilot, or request early access.
             </p>
             <a
               href="mailto:hello@vandrix.co.uk"
-              className="mt-4 inline-flex rounded-md border border-vx-accent bg-vx-accent/10 px-4 py-2 text-sm font-medium text-vx-text transition hover:bg-vx-accent/20"
+              className="mt-4 inline-flex rounded-md border border-[#F16122] bg-[#F16122]/10 px-4 py-2 text-sm font-medium text-white transition hover:bg-[#F16122]/20"
             >
               hello@vandrix.co.uk
             </a>
